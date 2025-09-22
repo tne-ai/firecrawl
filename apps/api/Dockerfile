@@ -24,7 +24,13 @@ RUN apt-get update && apt-get install -y \
     curl \
     build-essential \
     pkg-config \
+    python3 \
+    python3-distutils \
+    libpq-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# Ensure node-gyp can find Python
+ENV npm_config_python=/usr/bin/python3
 
 # Install Rust
 ENV RUSTUP_HOME=/usr/local/rustup \
